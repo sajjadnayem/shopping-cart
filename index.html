@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Shopping Cart</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+   <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+   <section>
+      <div class="container" id="shoppingCart">
+         <div class="cart">
+            <div class="col-md-12 col-lg-10 mx-auto"id=itemsWrapper>
+               <div class="cart-item"id="item1">
+                  <div class="row">
+                     <div class="col-md-7 center-item">
+                        <img src="images/product-1.png" alt="">
+                        <h5>iPhone 11 128GB Black</h5>
+                     </div>
+
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="decrementItem1" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input readonly id="itemCount1" type="text" class="form-control text-center" value="1">
+                           <button id="incrementItem1" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$ <span id="itemPrice1">1219</span></h5>
+                        <img id="removeItem1" src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item" id="item2">
+                  <div class="row">
+                     <div class="col-md-7 center-item mx-auto">
+                        <img src="images/product-2.png" alt="">
+                        <h5>iPhone 11 Silicone Case - Black</h5>
+                     </div>
+                     <div class="col-md-5 center-item">
+                        <div class="input-group number-spinner">
+                           <button id="decrementItem2" class="btn btn-default"><i class="fas fa-minus"></i></button>
+                           <input readonly id="itemCount2" type="text" class="form-control text-center" value="1">
+                           <button id="incrementItem2" class="btn btn-default"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <h5>$<span id="itemPrice2">59</span></h5>
+                        <img id="removeItem2" src="images/remove.png" alt="" class="remove-item">
+                     </div>
+                  </div>
+               </div>
+
+               <div class="cart-item">
+                  <div class="row">
+
+                     <div class="col-md-8">
+                        <h5>Subtotal: </h5>
+                        <h5>Tax (10% of Subtotal):</h5>
+                        <h5>Total:</h5>
+                     </div>
+
+                     <div class="col-md-4 status">
+                        <h5>$ <span id="subtotal">0</span></h5>
+                        <h5>$<span id="tax">0</span></h5>
+                        <h5>$<span id="total">0</span></h5>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-12 pt-4 pb-4">
+                  <button id="checkOutBtn" type="button" class="btn btn-success check-out">Check Out</button>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section id="deliveryDetails" class="d-none">
+      <div class="container mt-5">
+         <div class="bg-light p-5">
+            <h2>Fill Up Delivery Details</h2>
+            <form id="deliveryDetailsForm" action="">
+               <div class="form-group">
+                  <label for="formGroupExampleInput">Name</label>
+                  <input type="text" class="form-control" id="customerName" placeholder="Enter your name">
+               </div>
+               <div class="form-group">
+                  <label for="formGroupExampleInput2">Email</label>
+                  <input type="text" class="form-control" id="customerEmail" placeholder="Enter Your Email Address">
+               </div>
+               <div class="form-group">
+                  <label for="formGroupExampleInput2">Phone Number</label>
+                  <input type="text" class="form-control" id="customerPhone" placeholder="Enter your Phone Number">
+               </div>
+               <div class="form-group">
+                  <label for="formGroupExampleInput2">Address</label>
+                  <input type="text" class="form-control" id="customerAddress" placeholder="Enter your Present Address">
+               </div>
+               <div class="form-group">
+                  <button type="submit" class="btn btn-success">Submit</button>
+               </div>
+            </form>
+         </div>
+
+      </div>
+   </section>
+
+   <section id="invoice" class="d-none">
+      <div class="container my-5">
+         <div class=" bg-light p-5">
+         <h2 class="text-center text-success">Your Order is Confirmed</h2>
+         <h4 class="text-center">Order Details</h4>
+         <hr>
+
+         <div class="customer-details my-5">
+            <h5>Customer Name : <span id="showCustomerName"></span> </h5>
+            <h5>Customer Contact No : <span id="showCustomerPhone"></span> </h5>
+            <h5>Customer Email : <span id="showCustomerEmail"></span> </h5>
+            <h5>Delivery Address : <span id="showCustomerAddress"></span> </h5>
+         </div>
+
+         <div class="card">
+            <div class="card-header">Order Summery</div>
+            <div class="card-body">
+               <div class="table-responsive">
+                  <table class="table table-condensed">
+                     <thead>
+                        <tr>
+                            <td><strong>Item</strong></td>
+                            <td class="text-center"><strong>Price</strong></td>
+                            <td class="text-center"><strong>Quantity</strong></td>
+                            <td class="text-right"><strong>Totals</strong></td>
+                         </tr>
+                     </thead>
+                     <tbody>
+
+                        <tr id="invoice-item1">
+                           <td>iPhone 11 128GB Black</td>
+                           <td class="text-center">$ <span id="invoice-item-price1">1219</span></td>
+                           <td class="text-center" id="invoice-item-quantity1">1</td>
+                           <td class="text-right">$<span id="invoice-item-total1">1219</span></td>
+                        </tr>
+                        <tr id="invoice-item2">
+                           <td>iPhone 11 Silicone Case - Black</td>
+                           <td class="text-center">$ <span id="invoice-item-price2">59</span></td>
+                           <td class="text-center" id="invoice-item-quantity2">1</td>
+                           <td class="text-right">$<span id="invoice-item-total2">59</span></td>
+                        </tr>
+                        <tr>
+                           <td class="thick-line"></td>
+                           <td class="thick-line"></td>
+                           <td class="thick-line text-center"><strong>Subtotal</strong></td>
+                           <td class="thick-line text-right">$<span id="invoice-subtotal"></span></td>
+                        </tr>
+                        <tr>
+                           <td class="no-line"></td>
+                           <td class="no-line"></td>
+                           <td class="no-line text-center"><strong>tax</strong></td>
+                           <td class="no-line text-right">$<span id="invoice-tax"></span></td>
+                        </tr>
+                        <tr>
+                           <td class="no-line"></td>
+                           <td class="no-line"></td>
+                           <td class="no-line text-center"><strong>Total</strong></td>
+                           <td class="no-line text-right">$<span id="invoice-total">685.99</span></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+
+      </div>
+</div>
+</section>
+
+<script>
+    //Item 1 Increment
+    const incrementItemBtn1 = document.getElementById("incrementItem1");
+   incrementItemBtn1.addEventListener("click", function(){
+      itemCountHandler("itemCount1" , "itemPrice1" , "increment");
+   });
+   // Item 1 Decrement
+   const decrementItemBtn1 = document.getElementById("decrementItem1");
+   decrementItemBtn1.addEventListener("click", function(){
+      itemCountHandler("itemCount1" , "itemPrice1" , "decrement");
+   })
+   // Item 1 Delete
+   const itemDeleteBtn1 = document.getElementById("removeItem1");
+   itemDeleteBtn1.addEventListener("click", function(){
+      RemoveItemFromCart("item1", "itemPrice1")
+   }) 
+   //Item 2 Increment
+   const incrementItemBtn2 = document.getElementById("incrementItem2");
+   incrementItemBtn2.addEventListener("click", function(){
+      itemCountHandler("itemCount2" , "itemPrice2" , "increment");
+   });
+   // Item 2 Decrement
+   const decrementItemBtn2 = document.getElementById("decrementItem2");
+   decrementItemBtn2.addEventListener("click", function(){
+      itemCountHandler("itemCount2" , "itemPrice2" , "decrement");
+   })
+   // Item 2 Delete
+   const itemDeleteBtn2 = document.getElementById("removeItem2");
+   itemDeleteBtn2.addEventListener("click", function(){
+      RemoveItemFromCart("item2", "itemPrice2")
+   })
+   function itemCountHandler(itemCountId, itemPriceId , type){
+      const itemCount = document.getElementById(itemCountId).value;
+      const newItemCount = type == "increment" ? parseFloat(itemCount) + 1 : parseFloat(itemCount) - 1 ;
+      const itemPrice = document.getElementById(itemPriceId).innerText;
+      var itemPriceAmount = parseFloat(itemPrice);
+      const itemOriginalPrice = itemPriceAmount / itemCount; 
+      if(newItemCount <= 1){
+         document.getElementById(itemCountId).value = 1;
+         document.getElementById(itemPriceId).innerText = itemOriginalPrice;
+      }else{
+         document.getElementById(itemCountId).value = newItemCount;
+         const updatedPrice =  itemOriginalPrice * newItemCount;
+         document.getElementById(itemPriceId).innerText = updatedPrice;
+         if(itemCountId == "itemCount1" ){
+            document.getElementById("invoice-item-price1").innerText = itemOriginalPrice;
+            document.getElementById("invoice-item-quantity1").innerText = newItemCount;
+            document.getElementById("invoice-item-total1").innerText = updatedPrice;
+         }else if(itemCountId == "itemCount2" ){
+            document.getElementById("invoice-item-price2").innerText = itemOriginalPrice;
+            document.getElementById("invoice-item-quantity2").innerText = newItemCount;
+            document.getElementById("invoice-item-total2").innerText = updatedPrice;
+         }
+   }  
+   updateTotal();
+   }
+   // Total/Subtotal Calculation and Updated in DOM
+         function updateTotal(){
+            const priceOfItem1 = document.getElementById("itemPrice1").innerText;
+            const priceOfItem2 = document.getElementById("itemPrice2").innerText;
+            const getSubTotal = parseFloat(priceOfItem1) + parseFloat(priceOfItem2);
+            document.getElementById('subtotal').innerText = getSubTotal;
+            const tax = getSubTotal * 10 / 100 ;
+            document.getElementById('tax').innerText =  tax;
+            document.getElementById('total').innerText = getSubTotal + tax;
+            document.getElementById("invoice-subtotal").innerText = getSubTotal;
+            document.getElementById("invoice-tax").innerText = tax;
+            document.getElementById("invoice-total").innerText = getSubTotal + tax;
+            if(getSubTotal < 1){
+               checkOutBtn.style.display ="none";
+            }
+         }
+         // Functionality for Item Remove
+         function RemoveItemFromCart(itemId, ItemPriceId){
+            document.getElementById(itemId).style.display= "none";
+            document.getElementById(ItemPriceId).innerText = 0;
+            //Updating on cart
+            if(itemId == "item1" ){
+               document.getElementById("invoice-item1").style.display= "none";
+            }else if(itemId == "item2" ){
+               document.getElementById("invoice-item2").style.display= "none";
+            }
+            updateTotal();
+         }
+         // Checkout 
+         const checkOutBtn = document.getElementById('checkOutBtn');
+         checkOutBtn.addEventListener("click", function(){
+            document.getElementById("deliveryDetails").classList.remove("d-none");
+            document.getElementById("shoppingCart").classList.add("d-none");
+         })
+         // Delivery Details Submit 
+         const deliveryDetailsForm = document.getElementById('deliveryDetailsForm');
+         deliveryDetailsForm.addEventListener("submit", function(e){
+            e.preventDefault();
+            // Printing Invoice Customer Details 
+            document.getElementById("showCustomerName").innerText = deliveryDetailsForm.customerName.value;
+            document.getElementById("showCustomerPhone").innerText = deliveryDetailsForm.customerPhone.value;
+            document.getElementById("showCustomerEmail").innerText = deliveryDetailsForm.customerEmail.value;
+            document.getElementById("showCustomerAddress").innerText = deliveryDetailsForm.customerAddress.value;
+         //Hiding and Showing Elements
+            document.getElementById("shoppingCart").classList.add("d-none");
+            document.getElementById("deliveryDetails").classList.add("d-none");
+            document.getElementById("invoice").classList.remove("d-none");
+         })
+      updateTotal();
+</script>
+</body>
+
+</html>
